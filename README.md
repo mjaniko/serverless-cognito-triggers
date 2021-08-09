@@ -3,7 +3,11 @@
 ## Setup
 
 ```bash
-yarn
+yarn install
+```
+
+## Install Serverles
+```curl -o- -L https://slss.io/install | bash
 ```
 
 ## Deploy

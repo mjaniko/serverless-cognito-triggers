@@ -1,4 +1,5 @@
 export const main = async (event, context, callback) => {
-  console.log(event);
-  callback(null, event);
+  event.response.autoConfirmUser = true;
+  event.response.autoVerifyPhone = true;
+  return event;
 };

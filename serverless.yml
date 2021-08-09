@@ -1,6 +1,6 @@
 service: cognito-authentication
 
-frameworkVersion: ">=1.1.0 <2.0.0"
+frameworkVersion: ">=1.1.0"
 
 package:
   individually: false
@@ -13,15 +13,19 @@ custom:
   poolName: ${self:custom.stage}-user-pool
 
 provider:
+  lambdaHashingVersion: 20201221
   name: aws
   runtime: nodejs10.x
   stage: dev
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - sns:*
-      Resource:
-        - "*"
+  region: eu-central-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - sns:*
+          Resource:
+            - "*"
 
 functions:
   preSignUp:
